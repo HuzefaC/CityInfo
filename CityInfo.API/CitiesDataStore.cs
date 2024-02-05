@@ -13,7 +13,7 @@ public class CitiesDataStore
                 Id = 1,
                 Name = "London",
                 Description = "In England",
-                PointOfInterest = new List<PointOfInterestDto>
+                PointsOfInterest = new List<PointOfInterestDto>
                 {
                     new()
                     {
@@ -34,7 +34,7 @@ public class CitiesDataStore
                 Id = 2,
                 Name = "Madrid",
                 Description = "In Spain",
-                PointOfInterest = new List<PointOfInterestDto>
+                PointsOfInterest = new List<PointOfInterestDto>
                 {
                     new()
                     {
@@ -55,7 +55,7 @@ public class CitiesDataStore
                 Id = 3,
                 Name = "Munich",
                 Description = "In Germany",
-                PointOfInterest = new List<PointOfInterestDto>
+                PointsOfInterest = new List<PointOfInterestDto>
                 {
                     new()
                     {
@@ -76,7 +76,7 @@ public class CitiesDataStore
                 Id = 4,
                 Name = "Paris",
                 Description = "In France",
-                PointOfInterest = new List<PointOfInterestDto>
+                PointsOfInterest = new List<PointOfInterestDto>
                 {
                     new()
                     {
@@ -97,7 +97,7 @@ public class CitiesDataStore
                 Id = 5,
                 Name = "Milan",
                 Description = "In Italy",
-                PointOfInterest = new List<PointOfInterestDto>
+                PointsOfInterest = new List<PointOfInterestDto>
                 {
                     new()
                     {
