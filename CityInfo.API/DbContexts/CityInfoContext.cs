@@ -47,62 +47,55 @@ public class CityInfoContext : DbContext
                 Description = "In Italy"
             });
 
-        modelBuilder.Entity<PointOfInterest>().HasData(new PointOfInterest("The British Museum")
+        modelBuilder.Entity<PointOfInterest>().HasData(
+            new PointOfInterest("The British Museum", "A treasure trove of art and antiquities from around the world.")
             {
                 Id = 1,
                 CityId = 1,
-                Description = "A treasure trove of art and antiquities from around the world."
             },
-            new PointOfInterest("Buckingham Palace")
+            new PointOfInterest("Buckingham Palace", "The official residence of the British monarch.")
             {
                 Id = 2,
                 CityId = 1,
-                Description = "The official residence of the British monarch."
-            }, new PointOfInterest("Prado Museum")
+            }, new PointOfInterest("Prado Museum",
+                "One of the world's greatest art galleries, featuring European art from the 12th to early 20th century.")
             {
                 Id = 3,
                 CityId = 2,
-                Description =
-                    "One of the world's greatest art galleries, featuring European art from the 12th to early 20th century."
             },
-            new PointOfInterest("Santiago Bernabéu Stadium")
+            new PointOfInterest("Santiago Bernabéu Stadium",
+                "Home to Real Madrid, one of the world's most famous football clubs.")
             {
                 Id = 4,
                 CityId = 2,
-                Description = "Home to Real Madrid, one of the world's most famous football clubs."
-            }, new PointOfInterest("Neuschwanstein Castle")
+            }, new PointOfInterest("Neuschwanstein Castle", "A fairy-tale castle in the Bavarian Alps.")
             {
                 Id = 5,
                 CityId = 3,
-                Description = "A fairy-tale castle in the Bavarian Alps."
             },
-            new PointOfInterest("Oktoberfest")
+            new PointOfInterest("Oktoberfest", "The world's largest beer festival, held annually.")
             {
                 Id = 6,
                 CityId = 3,
-                Description = "The world's largest beer festival, held annually."
-            }, new PointOfInterest("Eiffel Tower")
+            }, new PointOfInterest("Eiffel Tower", "The iconic iron tower, a symbol of Paris.")
             {
                 Id = 7,
                 CityId = 4,
-                Description = "The iconic iron tower, a symbol of Paris."
             },
-            new PointOfInterest("Notre-Dame Cathedral")
+            new PointOfInterest("Notre-Dame Cathedral", "A masterpiece of French Gothic architecture.")
             {
                 Id = 8,
                 CityId = 4,
-                Description = "A masterpiece of French Gothic architecture."
-            }, new PointOfInterest("Duomo di Milano")
+            }, new PointOfInterest("Duomo di Milano",
+                "One of the largest cathedrals in the world, known for its intricate Gothic architecture.")
             {
                 Id = 9,
                 CityId = 5,
-                Description = "One of the largest cathedrals in the world, known for its intricate Gothic architecture."
             },
-            new PointOfInterest("La Scala Opera House")
+            new PointOfInterest("La Scala Opera House", "One of the world's most famous opera houses.")
             {
                 Id = 10,
                 CityId = 5,
-                Description = "One of the world's most famous opera houses."
             });
         base.OnModelCreating(modelBuilder);
     }

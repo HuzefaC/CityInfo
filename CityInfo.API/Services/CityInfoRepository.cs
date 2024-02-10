@@ -18,6 +18,37 @@ public class CityInfoRepository : ICityInfoRepository
         return await _context.Cities.Include(c => c.PointsOfInterest).OrderBy(c => c.Name).ToListAsync();
     }
 
+    public async Task<IEnumerable<City>> GetCitiesAsync(string? name, string? searchValue)
+    {
+        if (string.IsNullOrWhiteSpace(name) && string.IsNullOrWhiteSpace(searchValue))
+        {
+            return await GetCitiesAsync();
+        }
+
+        var contextCities = _context.Cities as IQueryable<City>;
+
+        if (!string.IsNullOrWhiteSpace(name))
+        {
+            name = name.Trim();
+            contextCities = contextCities.Where(city => city.Name == name);
+        }
+
+        if (!string.IsNullOrWhiteSpace(searchValue))
+        {
+            searchValue = searchValue.Trim();
+            contextCities = contextCities.Where(a =>
+                a.Name.Contains(searchValue) || (a.Description != null && a.Description.Contains(searchValue) ||
+                                                 a.PointsOfInterest.Any(poi =>
+                                                     poi.Name.Contains(searchValue) ||
+                                                     poi.Description.Contains(searchValue))));
+        }
+
+        return await contextCities
+            .Include(c => c.PointsOfInterest)
+            .OrderBy(c => c.Name)
+            .ToListAsync();
+    }
+
     public async Task<City?> GetCityAsync(int cityId, bool includePointsOfInterest)
     {
         if (includePointsOfInterest)

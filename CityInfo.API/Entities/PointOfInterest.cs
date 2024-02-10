@@ -7,19 +7,24 @@ public class PointOfInterest
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public int Id { get; init; }
 
-    [Required] [MaxLength(50)] public string Name { get; set; }
+    [Required] [MaxLength(50)] public string Name { get; } = null!;
 
     [ForeignKey("CityId")] public City? City { get; set; }
 
-    public int CityId { get; set; }
+    public int CityId { get; init; }
     
     [MaxLength(200)]
-    public string Description { get; set; }
+    public string Description { get; init; } = null!;
 
-    public PointOfInterest(string name)
+    public PointOfInterest(string name, string description)
     {
         Name = name;
+        Description = description;
+    }
+
+    private PointOfInterest()
+    {
     }
 }
